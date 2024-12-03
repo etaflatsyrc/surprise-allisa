@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('balt12.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            box-shadow: inset 0 0 0 10000px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out, scaleUp 3s infinite alternate;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+        p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            animation: fadeIn 2.5s ease-in-out;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+            opacity: 0.85;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;  /* Slightly smaller padding */
+            font-size: 1rem;  /* Slightly smaller font size */
+            background-color: rgba(255, 111, 97, 0.7);  /* Softer background color */
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;  /* Only change background on hover */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+        button:hover {
+            background-color: rgba(211, 85, 74, 0.7);  /* Muted hover color */
+        }
+        .balloons {
+            position: absolute;
+            width: 100px;
+            animation: float 6s infinite ease-in-out;
+        }
+        .balloon1 { left: 10%; animation-delay: 0s; }
+        .balloon2 { left: 30%; animation-delay: 1s; }
+        .balloon3 { left: 50%; animation-delay: 2s; }
+        .balloon4 { left: 70%; animation-delay: 3s; }
+        .balloon5 { left: 90%; animation-delay: 4s; }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffcc00;
+            animation: confettiFall 2s infinite ease-in-out;
+        }
+        .confetti:nth-child(odd) {
+            background-color: #ff66cc;
+        }
+        .confetti:nth-child(even) {
+            background-color: #66ccff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleUp {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            50% { transform: translateY(30vh) rotate(10deg); }
+            100% { transform: translateY(-10vh) rotate(-10deg); }
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday, Allisa! 🎂</h1>
+    <p>Dah boleh pergi clubbing tok, umur dah masuk angka 2. 🎁✨</p>
+    <button onclick="nextPage()">Click Here for a Surprise! 🎈</button>
+
+    <img class="balloons balloon1" src="balt8.jpg" alt="Balloon 1">
+    <img class="balloons balloon2" src="balt9.jpg" alt="Balloon 2">
+    <img class="balloons balloon3" src="balt10.jpg" alt="Balloon 3">
+    <img class="balloons balloon4" src="balt11.jpg" alt="Balloon 4">
+    <img class="balloons balloon5" src="balt5.jpg" alt="Balloon 5">
+
+    <!-- Confetti effect -->
+    <div class="confetti" style="left: 15%;"></div>
+    <div class="confetti" style="left: 25%;"></div>
+    <div class="confetti" style="left: 35%;"></div>
+    <div class="confetti" style="left: 45%;"></div>
+    <div class="confetti" style="left: 55%;"></div>
+    <div class="confetti" style="left: 65%;"></div>
+    <div class="confetti" style="left: 75%;"></div>
+    <div class="confetti" style="left: 85%;"></div>
+
+    <script>
+        function nextPage() {
+            window.location.href = "surprise.html";  // Redirect to a new page
+        }
+    </script>
+</body>
+</html>

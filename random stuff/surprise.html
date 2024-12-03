@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('balt13.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Georgia', serif; /* Changed to a more elegant font */
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0); /* Transparent background */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .ribbon {
+            position: absolute;
+            width: 100px;
+            animation: float 6s infinite ease-in-out, moveRibbon 6s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes moveRibbon {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(var(--random-x)) translateY(var(--random-y));
+            }
+        }
+
+        /* Style for the birthday text */
+        .birthday-text {
+            position: absolute;
+            bottom: 20px;
+            color: rgba(255, 255, 255, 0.7); /* Half transparent white text */
+            font-size: 3em;
+            font-family: 'Georgia', serif; /* Elegant font */
+            text-align: center;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <video autoplay loop controls>
+            <source src="birthday_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="ribbons" id="ribbons"></div>
+
+    <!-- Happy Birthday Text -->
+    <div class="birthday-text">Happy 20th Birthday!</div>
+
+    <script>
+        // Function to generate random values for X and Y axis
+        function getRandomPosition() {
+            return (Math.random() * 200 - 100) + 'vw'; // Random position between -100vw to 100vw
+        }
+
+        // Create and append ribbon elements dynamically
+        for (let i = 0; i < 20; i++) {
+            const ribbon = document.createElement('img');
+            ribbon.src = 'ribbon.png';
+            ribbon.alt = 'Ribbon';
+            ribbon.classList.add('ribbon');
+
+            // Set random animation properties for each ribbon
+            ribbon.style.setProperty('--random-x', getRandomPosition()); // X-axis from -100% to 100%
+            ribbon.style.setProperty('--random-y', getRandomPosition()); // Y-axis from -100% to 100%
+
+            // Append the ribbon to the body
+            document.body.appendChild(ribbon);
+        }
+    </script>
+</body>
+</html>
